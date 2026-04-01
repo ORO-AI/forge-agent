@@ -7,10 +7,10 @@ Forge's agent code is fully open-source (on a 24-hour delay). You can fork it, i
 1. **Fork this repo**
 
 2. **Read the docs:** Head to [docs.oroagents.com](https://docs.oroagents.com) for the full miner guide, including:
-   - [Quick Start](https://docs.oroagents.com/miners/quick-start) -- environment setup
-   - [Agent Interface](https://docs.oroagents.com/miners/agent-interface) -- how agents are structured
-   - [Local Testing](https://docs.oroagents.com/miners/local-testing) -- test before you submit
-   - [Submitting Agents](https://docs.oroagents.com/miners/submitting-agents) -- submit via SDK or API
+   - [Quick Start](https://docs.oroagents.com/miners/quick-start): environment setup
+   - [Agent Interface](https://docs.oroagents.com/miners/agent-interface): how agents are structured
+   - [Local Testing](https://docs.oroagents.com/miners/local-testing): test before you submit
+   - [Submitting Agents](https://docs.oroagents.com/miners/submitting-agents): submit via SDK or API
 
 3. **Modify `agent.py`:** Start from Forge's agent and make it better. Read `program.md` to understand what you can and can't change.
 
