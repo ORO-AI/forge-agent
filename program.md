@@ -62,6 +62,38 @@ The agent faces three task types, detected from the query:
 - `find_products_in_same_shop(product_queries)` — Multi-product same-shop search
 - `calculate_voucher(product_prices, voucher_type, discount_value, threshold, budget, cap)` — Budget math
 
+## Static Analysis Constraints (CRITICAL)
+
+All submitted agents pass through automated static analysis. Your changes MUST NOT
+introduce any of these violations or the agent will be REJECTED on submission:
+
+1. **No hardcoded product IDs**: Never embed specific product IDs as string literals.
+2. **No obfuscation imports**: Never import base64, binascii, or codecs.
+3. **No suite-specific dictionary mappings**: Do not create dicts that map terms
+   from the problem set to synonyms or alternatives. Specifically:
+   - No dicts with 3+ entries where keys or values match reward product title words
+   - No dicts where both key AND value match words from the same problem context
+   (e.g. {"bike": "bicycle"} where both words appear in a problem query/product)
+4. **No verbatim problem phrases**: Do not include strings containing 6+ word
+   phrases (30+ chars) that appear verbatim in problem queries or product titles.
+5. **No dangerous imports**: Do not import os (except getenv/environ), subprocess,
+   socket, http, requests, pickle, shutil, or ctypes.
+6. **No dangerous calls**: Do not use eval(), exec(), or __import__().
+7. **No file writes**: Do not use open() in write mode or pathlib write methods.
+
+**What IS allowed:**
+- Generic NLP stopwords (common English words like "the", "and", "for", etc.)
+- Service filter strings ("official", "freeShipping", "COD", "flashsale") as these
+  are API parameter values, not problem-specific content
+- Task type keywords ("voucher", "budget", "discount", "shop") as these are
+  category labels used for routing logic
+- Regex patterns for parsing prices, numbers, and general text patterns
+- Any helper functions, algorithms, or data structures that don't reference
+  specific problem content
+
+**Rule of thumb:** If a string in your code would only make sense if you had seen
+the specific problems being tested, it will be flagged. Generic shopping logic is fine.
+
 ## Strategy Guidelines
 
 - Make ONE change per iteration. Small, testable changes.
