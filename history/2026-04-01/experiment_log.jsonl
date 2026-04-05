@@ -1,0 +1,4 @@
+{"iteration": 0, "score": 0.0, "best": 0.0, "eval_type": "BASELINE", "status": "BASELINE", "timestamp": "2026-04-02 00:40:35"}
+{"iteration": 1, "score": 0, "best": 0.0, "eval_type": "SAMPLE", "status": "CLAUDE_ERROR", "timestamp": "2026-04-02 00:40:37"}
+{"iteration": 2, "score": 0, "best": 0.0, "eval_type": "SAMPLE", "status": "CLAUDE_ERROR", "timestamp": "2026-04-02 00:40:38"}
+{"iteration": 3, "score": 0, "best": 0.0, "eval_type": "SAMPLE", "status": "CLAUDE_ERROR", "timestamp": "2026-04-02 00:40:39"}
